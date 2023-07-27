@@ -1,5 +1,6 @@
 import { GetPath, TemplateConfig, TemplateProps } from "@yext/pages";
-import GridContainer from "../components/GridContainer";
+import HeaderSimple from "../components/HeaderSimple";
+import PageLayout from "../components/PageLayout";
 
 export const config: TemplateConfig = {
   stream: {
@@ -9,10 +10,16 @@ export const config: TemplateConfig = {
     fields: ["slug"],
   },
 };
-export const getPath: GetPath<TemplateProps> = ({ document }) => {
+export const getPath: GetPath<TemplateProps> = ({
+  document,
+}: TemplateProps) => {
   return `${document.slug}`;
 };
 
 export default function location() {
-  return <GridContainer />;
+  return (
+    <PageLayout backgroundColor="#FFFFFF">
+      <HeaderSimple />
+    </PageLayout>
+  );
 }
